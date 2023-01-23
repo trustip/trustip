@@ -5,6 +5,7 @@ namespace Trustip\Trustip;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use Trustip\Trustip\Exceptions\InvalidIpAddressException;
+use Trustip\Trustip\Exceptions\MissingApiKeyException;
 
 class ProxyCheck
 {
