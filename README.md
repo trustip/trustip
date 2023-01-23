@@ -48,6 +48,13 @@ Route::get('/check-ip', function (ProxyCheck $proxyCheck) {
     }
 });
 ```
+Or by using `Trustip` facade :
+```php
+use Trustip;
+
+$result = Trustip::check('8.8.8.8');
+
+```
 After that, you should get an output similar to this:
 ```json
 {
