@@ -15,7 +15,7 @@ class TrustipServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // // get the api_key from the config file
+        //get the api_key from the config file
         $apiKey = config('trustip.api_key');
 
         // checking the api key
@@ -27,6 +27,10 @@ class TrustipServiceProvider extends ServiceProvider
         $this->app->bind(ProxyCheck::class, function () use ($apiKey) {
             return new ProxyCheck($apiKey);
         });
+
+        // register the facade
+        $this->app->alias(ProxyCheck::class, 'trustip');
+
     }
 
     /**

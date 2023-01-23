@@ -1,7 +1,15 @@
 {
     "name": "trustip/trustip",
     "description": "A Laravel package from Trustip.io for VPN and Proxy detection, it allows you to check if an IP address is a Proxy, VPN, TOR, Hosting, Bad search engine robots or not.",
-    "version": "1.0",
+    "keywords": [
+        "VPN and Proxy detection",
+        "VPN detection",
+        "Proxy detection",
+        "Trustip",
+        "Laravel Trustip",
+        "IP detection"
+    ],
+    "homepage": "https://trustip.io",
     "license": "MIT",
     "authors": [{
         "name": "Trustip.io",
@@ -29,10 +37,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Trustip\\Trustip\\TrustipServiceProvider"
+                "Trustip\\Trustip\\Providers\\TrustipServiceProvider"
             ],
             "aliases": {
-                "Trustip": "Trustip\\Trustip\\Facades\\Trustip"
+                "Trustip": "Trustip\\Trustip\\Facades\\TrustipFacade"
             }
         }
     },
