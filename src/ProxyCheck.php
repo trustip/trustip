@@ -31,6 +31,10 @@ class ProxyCheck
      */
     public function check($ip)
     {
+        // checking the api key
+        if (empty($this->api_key)) {
+            throw new MissingApiKeyException("Trustip API Key not found in the env file, please set it before using the package");
+        }
         // check the IP address
         if (!filter_var($ip, FILTER_VALIDATE_IP)) {
             throw new InvalidIpAddressException("Invalid IP address");
