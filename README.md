@@ -78,7 +78,7 @@ If there's an error, the output will be similar to this:
 You can also use the `isIpProxy` helper function in your controllers or other classes:
 > The `isIpProxy` will return false if the check method throws an exception or returns an error
 ```php
-if (isIpProxy('127.0.0.1')) {
+if (isIpProxy('8.8.8.8')) {
     // IP is a proxy
 } else {
     // IP is not a proxy
