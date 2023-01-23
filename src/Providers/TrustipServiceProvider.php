@@ -3,7 +3,6 @@
 namespace Trustip\Trustip\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Trustip\Trustip\Exceptions\MissingApiKeyException;
 use Trustip\Trustip\ProxyCheck;
 
 class TrustipServiceProvider extends ServiceProvider
@@ -17,11 +16,6 @@ class TrustipServiceProvider extends ServiceProvider
     {
         //get the api_key from the config file
         $apiKey = config('trustip.api_key');
-
-        // checking the api key
-        if (empty($apiKey)) {
-            throw new MissingApiKeyException("Trustip API Key not found in the env file, please set it before using the package");
-        }
 
         // bind the ProxyCheck class to the app container
         $this->app->bind(ProxyCheck::class, function () use ($apiKey) {
