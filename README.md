@@ -39,7 +39,7 @@ You can use it as a dependency injection in Route or Controller
 use Trustip\Trustip\ProxyCheck;
 
 Route::get('/check-ip', function (ProxyCheck $proxyCheck) {
-    $ip = "127.0.0.1";
+    $ip = "8.8.8.8";
     try {
         $result = $proxyCheck->check($ip);
         return $result;
@@ -60,7 +60,7 @@ After that, you should get an output similar to this:
 {
     "status":"success",
     "data": {
-        "ip":"127.0.0.1",
+        "ip":"8.8.8.8",
         "is_proxy":true,
     }
 }
