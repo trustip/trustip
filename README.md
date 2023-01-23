@@ -74,6 +74,8 @@ If there's an error, the output will be similar to this:
     "message":"Invalid IP address"
 }
 ```
+> Check all errors on [https://trustip.io/api-docs](https://trustip.io/api-docs).
+
 
 You can also use the `isIpProxy` helper function in your controllers or other classes:
 > The `isIpProxy` will return false if the check method throws an exception or returns an error
