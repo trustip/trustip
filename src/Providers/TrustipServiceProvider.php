@@ -1,0 +1,52 @@
+<?php
+
+namespace Trustip\Trustip\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Trustip\Trustip\Exceptions\MissingApiKeyException;
+use Trustip\Trustip\ProxyCheck;
+
+class TrustipServiceProvider extends ServiceProvider
+{
+    /**
+     * Register services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        // // get the api_key from the config file
+        $apiKey = config('trustip.api_key');
+
+        // checking the api key
+        if (empty($apiKey)) {
+            throw new MissingApiKeyException("Trustip API Key not found in the env file, please set it before using the package");
+        }
+
+        // bind the ProxyCheck class to the app container
+        $this->app->bind(ProxyCheck::class, function () use ($apiKey) {
+            return new ProxyCheck($apiKey);
+        });
+    }
+
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        // load the package config file
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/trustip.php', 'trustip'
+        );
+
+        // publish the config file
+        $this->publishes([
+            __DIR__ . '/../config/trustip.php' => config_path('trustip.php'),
+        ], 'config');
+
+        // load the helper function
+        require_once __DIR__ . '/../Helpers/ProxyCheckHelper.php';
+    }
+}
