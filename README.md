@@ -15,7 +15,8 @@ TRUSTIP_API_KEY=your_api_key
 
 You can publish the config file with:
 ```sh
-php artisan vendor:publish --provider="Trustip\Trustip\Providers\TrustipServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Trustip\Trustip\Providers\TrustipServiceProvider" 
+--tag="config"
 ```
 
 Or create the config file config/trustip.php and add this code:
