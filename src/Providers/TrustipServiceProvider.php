@@ -14,17 +14,15 @@ class TrustipServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //get the api_key from the config file
-        $apiKey = config('trustip.api_key');
-
         // bind the ProxyCheck class to the app container
-        $this->app->bind(ProxyCheck::class, function () use ($apiKey) {
+        $this->app->bind(ProxyCheck::class, function () {
+            //get the api_key from the config file
+            $apiKey = config('trustip.api_key');
             return new ProxyCheck($apiKey);
         });
 
         // register the facade
         $this->app->alias(ProxyCheck::class, 'trustip');
-
     }
 
     /**
