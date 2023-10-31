@@ -67,7 +67,7 @@ After that, you should get an output similar to this:
     }
 }
 ```
-If the IP is proxy the `is_proxy` will be `true` if not it will be `false` you can read more at [https://trustip.io/api-docs](https://trustip.io/api-docs)
+If the IP is proxy the `is_proxy` will be `true` if not it will be `false` you can read more at [https://docs.trustip.io](https://docs.trustip.io)
 
 If there's an error, the output will be similar to this:
 ```json
@@ -76,7 +76,7 @@ If there's an error, the output will be similar to this:
     "message":"Invalid IP address"
 }
 ```
-> Check all errors on [https://trustip.io/api-docs](https://trustip.io/api-docs).
+> Check all errors on [https://docs.trustip.io](https://docs.trustip.io).
 
 
 You can also use the `isIpProxy` helper function in your controllers or other classes:
